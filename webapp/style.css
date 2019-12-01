@@ -16,6 +16,7 @@ span {
 #contents {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background-color: black;
   margin: auto 0;
   width: 240px;
