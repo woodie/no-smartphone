@@ -24,3 +24,16 @@ span {
   cursor: none;
   height: 100vh;
 }
+
+#_228 { top: 208px; left: 0 }
+#_229 { top: 209px; right: 0 }
+#_290 { top: 270px; left: 0 }
+#_291 { top: 271px; right: 0 }
+
+.measure {
+  color: yellow;
+  position: fixed;
+  width: 40px;
+  height: 19px;
+  border-bottom: thin solid yellow;
+}
