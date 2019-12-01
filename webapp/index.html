@@ -8,11 +8,11 @@
   <body>
 
   <div id="contents">
-    <div>Platform:<br/><span id="platform"></span></div>
     <div>Details:<br/><span id="details"></span></div>
     <div>Browser:<br/><span id="browser"></span></div>
     <div>Window:<br/><span id="window"></span></div>
     <div>Container:<br/><span id="container"></span></div>
+    <div>Press [#] for full-screen.</div>
   </div>
 
   <script>
@@ -31,13 +31,15 @@
     document.onfullscreenchange = function (event) {
       setDimensions();
     };
-    document.getElementById('platform').innerHTML = navigator.platform;
     var parts =  navigator.userAgent.split(') ')
     document.getElementById('details').innerHTML =  parts[0].split(' (')[1];
     document.getElementById('browser').innerHTML =  parts[parts.length - 1];
     // try dull screen on click
     document.addEventListener('keydown', function (e) {
-      document.documentElement.requestFullscreen();
+      var code = e.keyCode ? e.keyCode : e.which;
+      if (code == 163) { // #
+        document.documentElement.requestFullscreen();
+      }
     });
     setDimensions();
   })();
