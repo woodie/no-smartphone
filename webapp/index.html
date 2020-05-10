@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>No Smartphone</title>
+    <script src="script.js" type="text/javascript"></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -15,55 +16,9 @@
     <div>Container: <span id="container"></span></div>
     <div>Press [#] to try full-screen. <span id="fs"></span></div>
   </div>
-  <div class="measure" id="_228">228</div>
-  <div class="measure" id="_229">229</div>
-  <div class="measure" id="_290">290</div>
-  <div class="measure" id="_291">291</div>
 
   <script>
-  (function() {
-
-    class Example {}
-    Example.text = "??";
-    document.getElementById('fs').innerHTML = Example.text;
-
-    var setDimensions = function () {
-      var cw = document.getElementById('contents').offsetWidth;
-      var ch = document.getElementById('contents').offsetHeight;
-      document.getElementById('container').innerHTML = `${cw} x ${ch}`;
-    };
-    document.onfullscreenchange = function (event) {
-      setDimensions();
-    };
-    var parts =  navigator.userAgent.split(') ')
-    document.getElementById('details').innerHTML =  parts[0].split(' (')[1];
-    document.getElementById('browser').innerHTML =  parts[parts.length - 1];
-    // try dull screen on click
-    document.addEventListener('keydown', function (e) {
-      var code = e.keyCode ? e.keyCode : e.which;
-      document.getElementById('keypress').innerHTML = code;
-      if (code == 163) { // #
-        try {
-          document.documentElement.requestFullscreen();
-        } catch(error) {
-          document.getElementById('fs').innerHTML = 'fail';
-        }
-      }
-    });
-    document.body.addEventListener("mousemove", function (e) {
-      if (e.movementY > 0) {
-        document.getElementById('mousemove').innerHTML = 'down';
-      } else if (e.movementY < 0) {
-        document.getElementById('mousemove').innerHTML = 'up';
-      } else if (e.movementX > 0) {
-        document.getElementById('mousemove').innerHTML = 'right';
-      } else if (e.movementX < 0) {
-        document.getElementById('mousemove').innerHTML = 'left';
-      }
-    });
-    setDimensions();
-
-  })();
+  (function() { app(); })();
   </script>
   </body>
 </html>
