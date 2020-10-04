@@ -3,8 +3,6 @@
     var parts =  navigator.userAgent.split(') ')
     document.getElementById('details').innerHTML =  parts[0].split(' (')[1];
     document.getElementById('browser').innerHTML =  parts[parts.length - 1];
-    document.title = 'Screen Test';
-    document.getElementById('title').innerHTML = document.title;
     // debug
     var raw = "click mousedown mouseup focus blur keydown change mouseup click dblclick mousemove mouseover mouseout mousewheel keydown keyup keypress textInput touchstart touchmove touchend touchcancel resize scroll zoom focus blur select change submit reset";
     var words = raw.split(' ');
@@ -20,7 +18,8 @@
     // try dull screen on click
     document.addEventListener('keydown', function (e) {
       var code = e.keyCode ? e.keyCode : e.which;
-      document.getElementById('keypress').innerHTML = code;
+      document.getElementById('keycode').innerHTML = code;
+      document.getElementById('keyname').innerHTML = e.key;
       //if (code == 163) { // #
       //  try {
       //    document.documentElement.requestFullscreen();
